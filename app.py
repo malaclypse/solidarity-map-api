@@ -11,7 +11,7 @@ from hashlib import sha256
 
 CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(CURRENT_PATH, 'settings'))
-EVE_SETTINGS = os.environ.get('EVE_SETTINGS', 'settings/local.py')
+EVE_SETTINGS = os.environ.get('EVE_SETTINGS', 'settings/production.py')
 EVE_SETTINGS_ROOT, _ = os.path.splitext(EVE_SETTINGS)
 EVE_SETTINGS_PROFILE = os.path.basename(EVE_SETTINGS_ROOT)
 ABS_SETTINGS_PATH = os.path.join(CURRENT_PATH, EVE_SETTINGS)
