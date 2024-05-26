@@ -15,7 +15,7 @@ RUN poetry lock
 RUN poetry install --no-dev
 
 ARG MONGODB_URI
-
+ENV MONGODB_URI=$MONGODB_URI
 EXPOSE 5000
 
 # Run the application

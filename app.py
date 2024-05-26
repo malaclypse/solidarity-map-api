@@ -69,4 +69,4 @@ app = get_eve_app()
 if __name__ == '__main__':
     # Main entry point when run in stand-alone mode.
     logger.setLevel(logging.DEBUG)
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0')

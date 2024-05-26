@@ -25,11 +25,11 @@ API_PASSWORD = env.str('API_PASSWORD', default='JY9^QUfNt}+HuDfgvJ62')
 # Enable reads (GET), inserts (POST) and DELETE for resources/collections
 # (if you omit this line, the API will default to ['GET'] and provide
 # read-only access to the endpoint).
-# RESOURCE_METHODS = ['GET', 'POST']
+RESOURCE_METHODS = ['GET', 'POST']
 
 # Enable reads (GET), edits (PATCH), replacements (PUT) and deletes of
 # individual items  (defaults to read-only item access).
-# ITEM_METHODS = ['GET', 'PATCH', 'PUT']
+ITEM_METHODS = ['GET', 'PATCH', 'PUT']
 
 RECAPTCHA_ENABLED = env.bool('RECAPTCHA_ENABLED', default=False)
 RECAPTCHA_SECRET_KEY = env.str('RECAPTCHA_SECRET_KEY', default='')
