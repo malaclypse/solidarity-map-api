@@ -8,6 +8,7 @@ import sys
 from eve import Eve, auth
 from flask import abort
 from hashlib import sha256
+from pymongo import MongoClient
 
 CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(CURRENT_PATH, 'settings'))
@@ -18,7 +19,6 @@ ABS_SETTINGS_PATH = os.path.join(CURRENT_PATH, EVE_SETTINGS)
 
 # Allow current settings to be available to this code
 imported_settings = importlib.import_module(f'settings.{EVE_SETTINGS_PROFILE}')
-
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)
@@ -47,6 +47,9 @@ def recaptcha_hook(resource, request, lookup=None):
         logger.debug(response_text)
         abort(403)
 
+# Initialize MongoDB client with Cosmos DB connection string
+client = MongoClient(imported_settings.MONGO_URI)
+db = client[imported_settings.MONGO_DBNAME]
 
 def get_eve_app():
     """
